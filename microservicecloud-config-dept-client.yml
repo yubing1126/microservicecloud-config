@@ -20,10 +20,12 @@ spring:
       initial-size: 5
       max-total: 5
       max-wait-millis: 200
-
-    mybatis:
-      type-aliases-package: tk.yubing.springcloud.entities
-      mapper-locations: -classpath:mybatis/mapper/**/*.xml
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: tk.yubing.springcloud.entities
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰命名
+    cache-enabled: true #开启二级缓存
 eureka:
   client:
     #客户端注册进eureka服务列表内
@@ -55,9 +57,12 @@ spring:
       initial-size: 5
       max-total: 5
       max-wait-millis: 200
-  mybatis:
-    type-aliases-package: tk.yubing.springcloud.entities
-    mapper-locations: -classpath:mybatis/mapper/**/*.xml
+mybatis:
+  mapper-locations: -classpath:mapper/*.xml
+  type-aliases-package: tk.yubing.springcloud.entities
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰命名
+    cache-enabled: true #开启二级缓存
 eureka:
   client:
     #客户端注册进eureka服务列表内
